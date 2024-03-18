@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            background-color: blue;
+            border-radius: 5px;
+            height: 150px;
+            width: 150px;
+            animation: myanima 3s infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes myanima {
+            0% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateX(100px) translateY(-200px);
+                background-color: beige;
+            }
+            50% {
+                transform: translateX(200px) translateY(0);
+                background-color: blueviolet;
+            }
+            100% {
+                transform: translateY(200px) translateX(0);
+                background-color: brown;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">WDD 330</div>
+</body>
+</html>
