@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Faces</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="200" height="200"></canvas>
+
+    <script>
+        const canvas = document.getElementById( 'myCanvas' );
+        const ctx = canvas.getContext( '2d' );
+
+        // Initial state: happy face
+        let isHappy = true;
+
+        // Function to draw a happy face
+        function drawHappyFace () {
+            ctx.clearRect( 0, 0, canvas.width, canvas.height );
+
+            // Draw face
+            ctx.beginPath();
+            ctx.arc( 100, 100, 50, 0, Math.PI * 2 );
+            ctx.fillStyle = 'yellow';
+            ctx.fill();
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+
+            // Draw eyes
+            ctx.beginPath();
+            ctx.arc( 80, 80, 5, 0, Math.PI * 2 );
+            ctx.arc( 120, 80, 5, 0, Math.PI * 2 );
+            ctx.fillStyle = 'black';
+            ctx.fill();
+
+            // Draw mouth
+            ctx.beginPath();
+            ctx.arc( 100, 105, 30, 0, Math.PI, false ); // Mouth (clockwise)
+            ctx.stroke();
+        }
+
+        // Function to draw a frowny face
+        function drawFrownyFace () {
+            ctx.clearRect( 0, 0, canvas.width, canvas.height );
+
+            // Draw face
+            ctx.beginPath();
+            ctx.arc( 100, 100, 50, 0, Math.PI * 2 );
+            ctx.fillStyle = 'yellow';
+            ctx.fill();
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+
+            // Draw eyes
+            ctx.beginPath();
+            ctx.arc( 80, 80, 5, 0, Math.PI * 2 );
+            ctx.arc( 120, 80, 5, 0, Math.PI * 2 );
+            ctx.fillStyle = 'black';
+            ctx.fill();
+
+            // Draw mouth
+            ctx.beginPath();
+            ctx.arc( 100, 130, 30, Math.PI, Math.PI * 2 );
+            ctx.stroke();
+        }
+
+        // Initial drawing
+        drawHappyFace();
+
+        // Toggle between happy and frowny faces on click
+        canvas.addEventListener( 'click', () => {
+            if ( isHappy ) {
+                drawFrownyFace();
+            } else {
+                drawHappyFace();
+            }
+            isHappy = !isHappy;
+        } );
+    </script>
+</body>
+
+</html>
